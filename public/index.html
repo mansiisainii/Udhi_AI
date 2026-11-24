@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science Diagram Maker | Udhi Technologies</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header & Brand Banner -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-badge">Udhi AI</div>
+        <div class="brand-title">
+          <h1>Science Diagram Maker</h1>
+          <p class="subtitle">Automated Animated SVG Generator, Validator & GCSE Lesson Reviewer</p>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat-pill">
+          <span class="stat-label">Model Target</span>
+          <span class="stat-val highlight" id="activeModelLabel">gemini-2.5-flash</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label">Total Est. Cost</span>
+          <span class="stat-val" id="totalCostStat">$0.000000</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-label">Review Status</span>
+          <span class="stat-val status-badge" id="reviewProgressStat">0 / 5 Reviewed</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+    <!-- Live Generator Toolbar (Part B Requirement: Live Test Generator) -->
+    <section class="generator-toolbar">
+      <div class="toolbar-header">
+        <div class="toolbar-icon">⚡</div>
+        <div>
+          <h2>Live Diagram Generator (Part A Live Test)</h2>
+          <p>Select any concept to test the live generation, code validation, automated retry on failure, and metric logging.</p>
+        </div>
+      </div>
+      <div class="toolbar-controls">
+        <div class="control-group">
+          <label for="conceptSelect">Science Concept</label>
+          <select id="conceptSelect">
+            <option value="pythagoras">1. Pythagoras' theorem (Maths)</option>
+            <option value="parts-of-circle">2. Parts of a circle (Maths)</option>
+            <option value="series-circuit">3. Series circuit (Physics)</option>
+            <option value="photosynthesis">4. Photosynthesis (Biology)</option>
+            <option value="states-of-matter">5. States of matter (Chemistry)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="modelSelect">Gemini Model</label>
+          <select id="modelSelect">
+            <option value="gemini-2.5-flash">gemini-2.5-flash (Fast & Free Tier)</option>
+            <option value="gemini-1.5-flash">gemini-1.5-flash</option>
+            <option value="gemini-2.0-flash">gemini-2.0-flash</option>
+          </select>
+        </div>
+        <div class="control-actions">
+          <button id="btnGenerate" class="btn btn-primary">
+            <span class="btn-icon">⚡</span>
+            <span class="btn-text">Generate Diagram Live</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Notification Banner -->
+      <div id="liveAlertBox" class="alert-box hidden" role="alert">
+        <span class="alert-icon" id="alertIcon">ℹ️</span>
+        <div class="alert-content">
+          <h4 id="alertTitle">Status Title</h4>
+          <p id="alertMessage">Message description goes here.</p>
+        </div>
+        <button class="alert-close" id="alertCloseBtn" title="Dismiss">&times;</button>
+      </div>
+    </section>
+
+    <!-- Results Table Section -->
+    <section class="table-card">
+      <div class="table-card-header">
+        <div class="table-card-title">
+          <h2>GCSE Concepts Review Table</h2>
+          <span class="badge badge-neutral">5 Saved Results Loaded Pre-API</span>
+        </div>
+        <div class="table-legend">
+          <span class="legend-item"><span class="dot dot-pass"></span> Passed Check</span>
+          <span class="legend-item"><span class="dot dot-fail"></span> Failed Check</span>
+          <span class="legend-item"><span class="dot dot-approved"></span> Approved</span>
+          <span class="legend-item"><span class="dot dot-rejected"></span> Rejected</span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="diagrams-table" id="diagramsTable">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Concept & Diagram (Animated)</th>
+              <th style="width: 26%;">Automated Code Checks (5)</th>
+              <th style="width: 16%;">Metrics & Cost</th>
+              <th style="width: 30%;">Reviewer Approval & Notes</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Dynamic rows populated from results.json -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for Diagram Full-size Zoom Inspection -->
+  <div id="diagramModal" class="modal hidden">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="modalTitle">Diagram Preview</h3>
+        <button class="btn-close" id="modalCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>Built for <strong>Udhi Technologies</strong> • Science Diagram Maker Home Assignment</p>
+      <p class="footer-sub">Features: Deterministic SVG AST Validation, SMIL/CSS Animation Detection, Exponential Backoff (429/503), Dual Persistent Storage (File/Server & Browser LocalStorage Fallback).</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
