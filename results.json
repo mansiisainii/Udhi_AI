@@ -1,0 +1,192 @@
+[
+  {
+    "conceptId": "pythagoras",
+    "concept": "Pythagoras' theorem",
+    "subject": "Maths",
+    "text": "In a right-angled triangle, the longest side is called the hypotenuse. The square of the hypotenuse is equal to the sum of the squares of the other two sides: a² + b² = c².",
+    "modelName": "curated-gemini-3.5-flash-baseline",
+    "inputTokens": 142,
+    "outputTokens": 780,
+    "costUSD": 0.000245,
+    "retries": 0,
+    "validation": {
+      "allPassed": true,
+      "checks": {
+        "validParsable": {
+          "pass": true,
+          "message": "SVG is valid XML and properly structured."
+        },
+        "withinViewBox": {
+          "pass": true,
+          "message": "All elements are properly within viewBox [0, 0, 700, 500]."
+        },
+        "titleAndLabels": {
+          "pass": true,
+          "message": "Diagram has title and 9 explanatory text labels."
+        },
+        "hasAnimation": {
+          "pass": true,
+          "message": "Animation detected (SMIL & CSS)."
+        },
+        "pedagogicalQuality": {
+          "pass": true,
+          "message": "Rich visual design passed: 7 graphic shapes, visual styling, and gradient/defs."
+        }
+      }
+    },
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 500\" width=\"100%\" height=\"100%\">\n  <defs>\n    <linearGradient id=\"hypGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\" />\n      <stop offset=\"100%\" stop-color=\"#06b6d4\" />\n    </linearGradient>\n    <linearGradient id=\"sqAGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#f59e0b\" stop-opacity=\"0.75\" />\n      <stop offset=\"100%\" stop-color=\"#d97706\" stop-opacity=\"0.9\" />\n    </linearGradient>\n    <linearGradient id=\"sqBGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#10b981\" stop-opacity=\"0.75\" />\n      <stop offset=\"100%\" stop-color=\"#059669\" stop-opacity=\"0.9\" />\n    </linearGradient>\n    <linearGradient id=\"sqCGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#6366f1\" stop-opacity=\"0.75\" />\n      <stop offset=\"100%\" stop-color=\"#3b82f6\" stop-opacity=\"0.9\" />\n    </linearGradient>\n    <filter id=\"glow\" x=\"-20%\" y=\"-20%\" width=\"140%\" height=\"140%\">\n      <feGaussianBlur stdDeviation=\"3\" result=\"glow\" />\n      <feComposite in=\"SourceGraphic\" in2=\"glow\" operator=\"over\" />\n    </filter>\n  </defs>\n  <style>\n    .bg-canvas { fill: #0f172a; }\n    .heading { font-family: system-ui, -apple-system, sans-serif; font-size: 22px; font-weight: 700; fill: #f8fafc; }\n    .subtext { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; fill: #94a3b8; }\n    .side-label { font-family: monospace; font-size: 17px; font-weight: bold; fill: #ffffff; }\n    .pulse-glow { animation: pulse 2.8s infinite ease-in-out; }\n    @keyframes pulse {\n      0%, 100% { opacity: 0.85; stroke-width: 3.5; }\n      50% { opacity: 1; stroke-width: 6; stroke: #38bdf8; }\n    }\n  </style>\n  <rect width=\"700\" height=\"500\" rx=\"16\" class=\"bg-canvas\" />\n  <title>Pythagoras' Theorem: a² + b² = c²</title>\n  <text x=\"350\" y=\"44\" text-anchor=\"middle\" class=\"heading\">Pythagoras' Theorem: a² + b² = c²</text>\n  <text x=\"350\" y=\"70\" text-anchor=\"middle\" class=\"subtext\">For all right-angled triangles in Euclidean geometry</text>\n\n  <!-- Square on Side a (left, 90x90) -->\n  <rect x=\"160\" y=\"240\" width=\"90\" height=\"90\" rx=\"4\" fill=\"url(#sqAGrad)\" stroke=\"#fbbf24\" stroke-width=\"2\">\n    <animate attributeName=\"opacity\" values=\"0.75;1;0.75\" dur=\"3s\" repeatCount=\"indefinite\" />\n  </rect>\n  <text x=\"205\" y=\"290\" text-anchor=\"middle\" class=\"side-label\">a² = 9</text>\n\n  <!-- Square on Side b (bottom, 120x120) -->\n  <rect x=\"250\" y=\"330\" width=\"120\" height=\"120\" rx=\"4\" fill=\"url(#sqBGrad)\" stroke=\"#34d399\" stroke-width=\"2\">\n    <animate attributeName=\"opacity\" values=\"0.75;1;0.75\" dur=\"3s\" begin=\"0.8s\" repeatCount=\"indefinite\" />\n  </rect>\n  <text x=\"310\" y=\"395\" text-anchor=\"middle\" class=\"side-label\">b² = 16</text>\n\n  <!-- Triangle (Right-angled at 250, 330) -->\n  <polygon points=\"250,240 250,330 370,330\" fill=\"#1e293b\" stroke=\"#cbd5e1\" stroke-width=\"3\" />\n  <!-- Right Angle Symbol -->\n  <rect x=\"250\" y=\"316\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"#f1f5f9\" stroke-width=\"2\" />\n\n  <!-- Square on Hypotenuse c (tilted 150x150) -->\n  <g transform=\"translate(250,240) rotate(-36.87)\">\n    <rect x=\"0\" y=\"-150\" width=\"150\" height=\"150\" rx=\"6\" fill=\"url(#sqCGrad)\" stroke=\"#818cf8\" stroke-width=\"2\" opacity=\"0.9\" />\n    <text x=\"75\" y=\"-70\" text-anchor=\"middle\" class=\"side-label\" transform=\"rotate(36.87, 75, -70)\">c² = 25</text>\n  </g>\n\n  <!-- Hypotenuse glowing edge -->\n  <line x1=\"250\" y1=\"240\" x2=\"370\" y2=\"330\" stroke=\"url(#hypGrad)\" stroke-width=\"4\" class=\"pulse-glow\" />\n\n  <!-- Labels -->\n  <text x=\"238\" y=\"285\" text-anchor=\"end\" fill=\"#fef08a\" font-weight=\"bold\" font-size=\"15\">Side a = 3</text>\n  <text x=\"310\" y=\"322\" text-anchor=\"middle\" fill=\"#a7f3d0\" font-weight=\"bold\" font-size=\"15\">Side b = 4</text>\n  <text x=\"330\" y=\"275\" text-anchor=\"start\" fill=\"#7dd3fc\" font-weight=\"bold\" font-size=\"16\">Hypotenuse c = 5</text>\n  <text x=\"540\" y=\"380\" text-anchor=\"middle\" fill=\"#38bdf8\" font-size=\"18\" font-weight=\"bold\">9 + 16 = 25 ✓</text>\n</svg>",
+    "timestamp": "2026-11-24T11:20:18.893Z"
+  },
+  {
+    "conceptId": "parts-of-circle",
+    "concept": "Parts of a circle",
+    "subject": "Maths",
+    "text": "A circle has a centre. The radius is the distance from the centre to the edge. The diameter goes across the circle through the centre and is twice the radius. The circumference is the distance around the circle.",
+    "modelName": "curated-gemini-3.5-flash-baseline",
+    "inputTokens": 155,
+    "outputTokens": 820,
+    "costUSD": 0.000258,
+    "retries": 0,
+    "validation": {
+      "allPassed": true,
+      "checks": {
+        "validParsable": {
+          "pass": true,
+          "message": "SVG is valid XML and properly structured."
+        },
+        "withinViewBox": {
+          "pass": true,
+          "message": "All elements are properly within viewBox [0, 0, 700, 500]."
+        },
+        "titleAndLabels": {
+          "pass": true,
+          "message": "Diagram has title and 7 explanatory text labels."
+        },
+        "hasAnimation": {
+          "pass": true,
+          "message": "Animation detected (SMIL & CSS)."
+        },
+        "pedagogicalQuality": {
+          "pass": true,
+          "message": "Rich visual design passed: 7 graphic shapes, visual styling, and gradient/defs."
+        }
+      }
+    },
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 500\" width=\"100%\" height=\"100%\">\n  <defs>\n    <linearGradient id=\"circleGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#1e1b4b\" />\n      <stop offset=\"100%\" stop-color=\"#0f172a\" />\n    </linearGradient>\n  </defs>\n  <style>\n    .circ-bg { fill: #090d16; }\n    .title-txt { font-family: system-ui, sans-serif; font-size: 22px; font-weight: bold; fill: #f8fafc; }\n    .lbl { font-family: system-ui, sans-serif; font-size: 15px; font-weight: 600; }\n    .circ-dash {\n      stroke-dasharray: 8 6;\n      animation: rotateCirc 18s linear infinite;\n      transform-origin: 320px 260px;\n    }\n    @keyframes rotateCirc {\n      100% { transform: rotate(360deg); }\n    }\n  </style>\n  <rect width=\"700\" height=\"500\" rx=\"16\" class=\"circ-bg\" />\n  <title>Parts of a Circle: Centre, Radius, Diameter, Circumference</title>\n  <text x=\"350\" y=\"44\" text-anchor=\"middle\" class=\"title-txt\">Geometry: Parts of a Circle</text>\n  <text x=\"350\" y=\"70\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"14\">Radius (r) • Diameter (d = 2r) • Circumference (C = 2πr)</text>\n\n  <!-- Outer Main Circle -->\n  <circle cx=\"320\" cy=\"260\" r=\"160\" fill=\"url(#circleGrad)\" stroke=\"#38bdf8\" stroke-width=\"4\" />\n  <circle cx=\"320\" cy=\"260\" r=\"166\" fill=\"none\" stroke=\"#818cf8\" stroke-width=\"2\" class=\"circ-dash\" />\n\n  <!-- Centre Point -->\n  <circle cx=\"320\" cy=\"260\" r=\"6\" fill=\"#f43f5e\">\n    <animate attributeName=\"r\" values=\"5;8;5\" dur=\"2s\" repeatCount=\"indefinite\" />\n  </circle>\n  <text x=\"320\" y=\"248\" text-anchor=\"middle\" fill=\"#fda4af\" class=\"lbl\">Centre (O)</text>\n\n  <!-- Diameter (Full Line from left edge to right edge) -->\n  <line x1=\"160\" y1=\"260\" x2=\"480\" y2=\"260\" stroke=\"#f59e0b\" stroke-width=\"3\" stroke-dasharray=\"4 2\" />\n  <text x=\"240\" y=\"250\" text-anchor=\"middle\" fill=\"#fcd34d\" class=\"lbl\">Diameter = 2 × Radius</text>\n\n  <!-- Radius (Angled Line from Centre to Top Right edge) -->\n  <line x1=\"320\" y1=\"260\" x2=\"433\" y2=\"147\" stroke=\"#10b981\" stroke-width=\"3.5\">\n    <animate attributeName=\"stroke-width\" values=\"3.5;5;3.5\" dur=\"2.4s\" repeatCount=\"indefinite\" />\n  </line>\n  <text x=\"390\" y=\"195\" text-anchor=\"start\" fill=\"#6ee7b7\" class=\"lbl\">Radius (r)</text>\n\n  <!-- Circumference Perimeter Callout -->\n  <path d=\"M 470 200 Q 520 200 550 250\" fill=\"none\" stroke=\"#a78bfa\" stroke-width=\"2\" stroke-dasharray=\"3 3\" />\n  <text x=\"560\" y=\"260\" text-anchor=\"start\" fill=\"#c4b5fd\" class=\"lbl\">Circumference (Perimeter)</text>\n  <text x=\"560\" y=\"285\" text-anchor=\"start\" fill=\"#94a3b8\" font-size=\"13\">Distance all the way around</text>\n</svg>",
+    "timestamp": "2026-11-24T11:20:18.898Z"
+  },
+  {
+    "conceptId": "series-circuit",
+    "concept": "Series circuit",
+    "subject": "Physics",
+    "text": "In a series circuit there is only one loop. The current is the same everywhere in the loop. The voltage of the cell is shared between the components.",
+    "modelName": "curated-gemini-3.5-flash-baseline",
+    "inputTokens": 148,
+    "outputTokens": 850,
+    "costUSD": 0.000266,
+    "retries": 0,
+    "validation": {
+      "allPassed": true,
+      "checks": {
+        "validParsable": {
+          "pass": true,
+          "message": "SVG is valid XML and properly structured."
+        },
+        "withinViewBox": {
+          "pass": true,
+          "message": "All elements are properly within viewBox [0, 0, 700, 500]."
+        },
+        "titleAndLabels": {
+          "pass": true,
+          "message": "Diagram has title and 7 explanatory text labels."
+        },
+        "hasAnimation": {
+          "pass": true,
+          "message": "Animation detected (SMIL & CSS)."
+        },
+        "pedagogicalQuality": {
+          "pass": true,
+          "message": "Rich visual design passed: 15 graphic shapes, visual styling, and gradient/defs."
+        }
+      }
+    },
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 500\" width=\"100%\" height=\"100%\">\n  <defs>\n    <filter id=\"bulbGlow\">\n      <feGaussianBlur stdDeviation=\"6\" result=\"blur\" />\n      <feComposite in=\"SourceGraphic\" in2=\"blur\" operator=\"over\" />\n    </filter>\n  </defs>\n  <style>\n    .bg { fill: #0b1120; }\n    .txt-title { font-family: system-ui, sans-serif; font-size: 22px; font-weight: bold; fill: #f8fafc; }\n    .txt-lbl { font-family: system-ui, sans-serif; font-size: 15px; font-weight: bold; }\n    .electron {\n      animation: flow 4s linear infinite;\n    }\n  </style>\n  <rect width=\"700\" height=\"500\" rx=\"16\" class=\"bg\" />\n  <title>Physics: Single-Loop Series Circuit</title>\n  <text x=\"350\" y=\"44\" text-anchor=\"middle\" class=\"txt-title\">Series Circuit: Single Loop Flow</text>\n  <text x=\"350\" y=\"70\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"14\">Current is identical at every point; Voltage is shared: V_total = V₁ + V₂</text>\n\n  <!-- Main Circuit Wire Rect Loop -->\n  <rect x=\"120\" y=\"120\" width=\"460\" height=\"260\" rx=\"20\" fill=\"none\" stroke=\"#475569\" stroke-width=\"5\" />\n\n  <!-- Animated Electron Dots circulating clockwise -->\n  <circle cx=\"120\" cy=\"200\" r=\"6\" fill=\"#38bdf8\">\n    <animateMotion path=\"M 0 0 L 0 -80 Q 0 -80 0 -80 L 460 -80 L 460 180 L 0 180 Z\" dur=\"5s\" repeatCount=\"indefinite\" />\n  </circle>\n  <circle cx=\"120\" cy=\"300\" r=\"6\" fill=\"#38bdf8\">\n    <animateMotion path=\"M 0 0 L 0 80 L 460 80 L 460 -180 L 0 -180 Z\" dur=\"5s\" repeatCount=\"indefinite\" />\n  </circle>\n\n  <!-- Cell / DC Battery (Top) -->\n  <rect x=\"300\" y=\"105\" width=\"100\" height=\"30\" fill=\"#0b1120\" />\n  <line x1=\"335\" y1=\"105\" x2=\"335\" y2=\"135\" stroke=\"#ef4444\" stroke-width=\"4\" />\n  <line x1=\"365\" y1=\"112\" x2=\"365\" y2=\"128\" stroke=\"#3b82f6\" stroke-width=\"6\" />\n  <text x=\"350\" y=\"95\" text-anchor=\"middle\" fill=\"#f87171\" class=\"txt-lbl\">Battery / Cell (6V)</text>\n\n  <!-- Component 1: Bulb 1 (Right branch) -->\n  <circle cx=\"580\" cy=\"200\" r=\"24\" fill=\"#fef08a\" stroke=\"#ca8a04\" stroke-width=\"3\" filter=\"url(#bulbGlow)\">\n    <animate attributeName=\"opacity\" values=\"0.75;1;0.75\" dur=\"1.5s\" repeatCount=\"indefinite\" />\n  </circle>\n  <line x1=\"565\" y1=\"185\" x2=\"595\" y2=\"215\" stroke=\"#713f12\" stroke-width=\"2.5\" />\n  <line x1=\"565\" y1=\"215\" x2=\"595\" y2=\"185\" stroke=\"#713f12\" stroke-width=\"2.5\" />\n  <text x=\"615\" y=\"205\" text-anchor=\"start\" fill=\"#fde047\" class=\"txt-lbl\">Lamp 1 (3V)</text>\n\n  <!-- Component 2: Bulb 2 (Right branch) -->\n  <circle cx=\"580\" cy=\"300\" r=\"24\" fill=\"#fef08a\" stroke=\"#ca8a04\" stroke-width=\"3\" filter=\"url(#bulbGlow)\">\n    <animate attributeName=\"opacity\" values=\"0.75;1;0.75\" dur=\"1.5s\" repeatCount=\"indefinite\" />\n  </circle>\n  <line x1=\"565\" y1=\"285\" x2=\"595\" y2=\"315\" stroke=\"#713f12\" stroke-width=\"2.5\" />\n  <line x1=\"565\" y1=\"315\" x2=\"595\" y2=\"285\" stroke=\"#713f12\" stroke-width=\"2.5\" />\n  <text x=\"615\" y=\"305\" text-anchor=\"start\" fill=\"#fde047\" class=\"txt-lbl\">Lamp 2 (3V)</text>\n\n  <!-- Component 3: Ammeter (Bottom branch) -->\n  <rect x=\"310\" y=\"365\" width=\"80\" height=\"30\" fill=\"#0b1120\" />\n  <circle cx=\"350\" cy=\"380\" r=\"22\" fill=\"#1e293b\" stroke=\"#38bdf8\" stroke-width=\"3\" />\n  <text x=\"350\" y=\"387\" text-anchor=\"middle\" fill=\"#38bdf8\" font-size=\"18\" font-weight=\"bold\">A</text>\n  <text x=\"350\" y=\"425\" text-anchor=\"middle\" fill=\"#7dd3fc\" class=\"txt-lbl\">Ammeter: Constant Current (I)</text>\n</svg>",
+    "timestamp": "2026-11-24T11:20:18.899Z"
+  },
+  {
+    "conceptId": "photosynthesis",
+    "concept": "Photosynthesis",
+    "subject": "Biology",
+    "text": "Plants take in carbon dioxide and water. They use light energy, absorbed by chlorophyll, to make glucose and oxygen.",
+    "modelName": "curated-gemini-3.5-flash-baseline",
+    "inputTokens": 160,
+    "outputTokens": 890,
+    "costUSD": 0.000279,
+    "retries": 0,
+    "validation": {
+      "allPassed": true,
+      "checks": {
+        "validParsable": {
+          "pass": true,
+          "message": "SVG is valid XML and properly structured."
+        },
+        "withinViewBox": {
+          "pass": true,
+          "message": "All elements are properly within viewBox [0, 0, 700, 500]."
+        },
+        "titleAndLabels": {
+          "pass": true,
+          "message": "Diagram has title and 8 explanatory text labels."
+        },
+        "hasAnimation": {
+          "pass": true,
+          "message": "Animation detected (SMIL & CSS)."
+        },
+        "pedagogicalQuality": {
+          "pass": true,
+          "message": "Rich visual design passed: 11 graphic shapes, visual styling, and gradient/defs."
+        }
+      }
+    },
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 500\" width=\"100%\" height=\"100%\">\n  <defs>\n    <linearGradient id=\"sunGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#fef08a\" />\n      <stop offset=\"100%\" stop-color=\"#f59e0b\" />\n    </linearGradient>\n    <linearGradient id=\"leafGrad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\">\n      <stop offset=\"0%\" stop-color=\"#22c55e\" />\n      <stop offset=\"100%\" stop-color=\"#15803d\" />\n    </linearGradient>\n  </defs>\n  <style>\n    .bio-bg { fill: #061e14; }\n    .heading-txt { font-family: system-ui, sans-serif; font-size: 22px; font-weight: bold; fill: #ecfdf5; }\n    .chem-label { font-family: system-ui, sans-serif; font-size: 15px; font-weight: bold; }\n    .photon-beam {\n      stroke-dasharray: 6 4;\n      animation: beam 1.5s linear infinite;\n    }\n    @keyframes beam {\n      to { stroke-dashoffset: -20; }\n    }\n  </style>\n  <rect width=\"700\" height=\"500\" rx=\"16\" class=\"bio-bg\" />\n  <title>Biology: Photosynthesis in Plant Leaf</title>\n  <text x=\"350\" y=\"44\" text-anchor=\"middle\" class=\"heading-txt\">Photosynthesis in Green Chloroplasts</text>\n  <text x=\"350\" y=\"70\" text-anchor=\"middle\" fill=\"#6ee7b7\" font-size=\"14\">6CO₂ + 6H₂O + Light Energy ➔ C₆H₁₂O₆ (Glucose) + 6O₂</text>\n\n  <!-- Radiant Sun -->\n  <circle cx=\"120\" cy=\"140\" r=\"45\" fill=\"url(#sunGrad)\">\n    <animate attributeName=\"r\" values=\"42;47;42\" dur=\"3s\" repeatCount=\"indefinite\" />\n  </circle>\n  <text x=\"120\" y=\"210\" text-anchor=\"middle\" fill=\"#fde047\" class=\"chem-label\">Light Energy</text>\n\n  <!-- Sunlight Rays pointing to Leaf -->\n  <line x1=\"165\" y1=\"160\" x2=\"260\" y2=\"230\" stroke=\"#fef08a\" stroke-width=\"3\" class=\"photon-beam\" />\n  <line x1=\"150\" y1=\"180\" x2=\"240\" y2=\"260\" stroke=\"#fef08a\" stroke-width=\"3\" class=\"photon-beam\" />\n\n  <!-- Plant Leaf Representation -->\n  <path d=\"M 260 340 C 230 200, 420 180, 520 230 C 560 320, 390 400, 260 340 Z\" fill=\"url(#leafGrad)\" stroke=\"#86efac\" stroke-width=\"3\" />\n  <path d=\"M 260 340 Q 380 275 520 230\" fill=\"none\" stroke=\"#166534\" stroke-width=\"3.5\" />\n\n  <!-- Chlorophyll Label inside leaf -->\n  <circle cx=\"380\" cy=\"285\" r=\"14\" fill=\"#14532d\" stroke=\"#4ade80\" stroke-width=\"2\" />\n  <text x=\"380\" y=\"260\" text-anchor=\"middle\" fill=\"#bbf7d0\" class=\"chem-label\">Chlorophyll</text>\n\n  <!-- Reactant: Carbon Dioxide (Inflow) -->\n  <path d=\"M 120 310 L 250 310\" stroke=\"#93c5fd\" stroke-width=\"3\" stroke-dasharray=\"5 3\" />\n  <text x=\"140\" y=\"295\" fill=\"#60a5fa\" class=\"chem-label\">Carbon Dioxide (CO₂)</text>\n\n  <!-- Reactant: Water (Roots/Stem Inflow) -->\n  <path d=\"M 230 460 L 280 370\" stroke=\"#38bdf8\" stroke-width=\"3.5\" stroke-dasharray=\"4 4\" />\n  <text x=\"210\" y=\"475\" fill=\"#38bdf8\" class=\"chem-label\">Water (H₂O from roots)</text>\n\n  <!-- Product: Oxygen Outflow -->\n  <path d=\"M 480 210 Q 550 160 620 160\" fill=\"none\" stroke=\"#a7f3d0\" stroke-width=\"3\" stroke-dasharray=\"5 3\" />\n  <text x=\"590\" y=\"145\" fill=\"#34d399\" class=\"chem-label\">Oxygen (O₂) Released</text>\n\n  <!-- Product: Glucose (Stored Energy) -->\n  <path d=\"M 470 340 L 590 380\" stroke=\"#f472b6\" stroke-width=\"3\" />\n  <text x=\"600\" y=\"395\" fill=\"#f472b6\" class=\"chem-label\">Glucose (C₆H₁₂O₆)</text>\n</svg>",
+    "timestamp": "2026-11-24T11:20:18.899Z"
+  },
+  {
+    "conceptId": "states-of-matter",
+    "concept": "States of matter",
+    "subject": "Chemistry",
+    "text": "In a solid the particles are close together and vibrate in place. In a liquid they are close but move past each other. In a gas they are far apart and move fast.",
+    "modelName": "curated-gemini-3.5-flash-baseline",
+    "inputTokens": 152,
+    "outputTokens": 880,
+    "costUSD": 0.000275,
+    "retries": 0,
+    "validation": {
+      "allPassed": true,
+      "checks": {
+        "validParsable": {
+          "pass": true,
+          "message": "SVG is valid XML and properly structured."
+        },
+        "withinViewBox": {
+          "pass": true,
+          "message": "All elements are properly within viewBox [0, 0, 700, 500]."
+        },
+        "titleAndLabels": {
+          "pass": true,
+          "message": "Diagram has title and 11 explanatory text labels."
+        },
+        "hasAnimation": {
+          "pass": true,
+          "message": "Animation detected (SMIL & CSS)."
+        },
+        "pedagogicalQuality": {
+          "pass": true,
+          "message": "Rich visual design passed: 22 graphic shapes, visual styling."
+        }
+      }
+    },
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 500\" width=\"100%\" height=\"100%\">\n  <style>\n    .matter-bg { fill: #0a0f1d; }\n    .heading { font-family: system-ui, sans-serif; font-size: 22px; font-weight: bold; fill: #f8fafc; }\n    .box-title { font-family: system-ui, sans-serif; font-size: 16px; font-weight: bold; }\n    .solid-vibe {\n      animation: vibrate 0.12s infinite alternate ease-in-out;\n    }\n    @keyframes vibrate {\n      from { transform: translate(-1px, -1px); }\n      to { transform: translate(1px, 1px); }\n    }\n  </style>\n  <rect width=\"700\" height=\"500\" rx=\"16\" class=\"matter-bg\" />\n  <title>Chemistry: States of Matter (Solid, Liquid, Gas)</title>\n  <text x=\"350\" y=\"44\" text-anchor=\"middle\" class=\"heading\">States of Matter Particle Theory</text>\n  <text x=\"350\" y=\"70\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"14\">Particle arrangement, spacing, and kinetic energy</text>\n\n  <!-- Box 1: Solid -->\n  <rect x=\"50\" y=\"110\" width=\"170\" height=\"260\" rx=\"10\" fill=\"#1e293b\" stroke=\"#3b82f6\" stroke-width=\"2\" />\n  <text x=\"135\" y=\"395\" text-anchor=\"middle\" fill=\"#60a5fa\" class=\"box-title\">Solid</text>\n  <text x=\"135\" y=\"420\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"12\">Fixed regular lattice</text>\n  <text x=\"135\" y=\"440\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"12\">Vibrates in place</text>\n  <g class=\"solid-vibe\">\n    <!-- 3x3 Lattice -->\n    <circle cx=\"95\" cy=\"250\" r=\"12\" fill=\"#38bdf8\" />\n    <circle cx=\"135\" cy=\"250\" r=\"12\" fill=\"#38bdf8\" />\n    <circle cx=\"175\" cy=\"250\" r=\"12\" fill=\"#38bdf8\" />\n    <circle cx=\"95\" cy=\"290\" r=\"12\" fill=\"#38bdf8\" />\n    <circle cx=\"135\" cy=\"290\" r=\"12\" fill=\"#38bdf8\" />\n    <circle cx=\"175\" cy=\"290\" r=\"12\" fill=\"#38bdf8\" />\n    <circle cx=\"95\" cy=\"330\" r=\"12\" fill=\"#38bdf8\" />\n    <circle cx=\"135\" cy=\"330\" r=\"12\" fill=\"#38bdf8\" />\n    <circle cx=\"175\" cy=\"330\" r=\"12\" fill=\"#38bdf8\" />\n  </g>\n\n  <!-- Box 2: Liquid -->\n  <rect x=\"265\" y=\"110\" width=\"170\" height=\"260\" rx=\"10\" fill=\"#1e293b\" stroke=\"#10b981\" stroke-width=\"2\" />\n  <text x=\"350\" y=\"395\" text-anchor=\"middle\" fill=\"#34d399\" class=\"box-title\">Liquid</text>\n  <text x=\"350\" y=\"420\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"12\">Close together, random</text>\n  <text x=\"350\" y=\"440\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"12\">Slide past each other</text>\n  <g>\n    <circle cx=\"300\" cy=\"270\" r=\"12\" fill=\"#10b981\">\n      <animate attributeName=\"cy\" values=\"270;265;270\" dur=\"2s\" repeatCount=\"indefinite\" />\n      <animate attributeName=\"cx\" values=\"300;305;300\" dur=\"2.5s\" repeatCount=\"indefinite\" />\n    </circle>\n    <circle cx=\"340\" cy=\"280\" r=\"12\" fill=\"#10b981\">\n      <animate attributeName=\"cy\" values=\"280;286;280\" dur=\"1.8s\" repeatCount=\"indefinite\" />\n    </circle>\n    <circle cx=\"380\" cy=\"275\" r=\"12\" fill=\"#10b981\">\n      <animate attributeName=\"cx\" values=\"380;374;380\" dur=\"2.2s\" repeatCount=\"indefinite\" />\n    </circle>\n    <circle cx=\"310\" cy=\"320\" r=\"12\" fill=\"#10b981\" />\n    <circle cx=\"350\" cy=\"325\" r=\"12\" fill=\"#10b981\" />\n    <circle cx=\"390\" cy=\"320\" r=\"12\" fill=\"#10b981\" />\n  </g>\n\n  <!-- Box 3: Gas -->\n  <rect x=\"480\" y=\"110\" width=\"170\" height=\"260\" rx=\"10\" fill=\"#1e293b\" stroke=\"#f59e0b\" stroke-width=\"2\" />\n  <text x=\"565\" y=\"395\" text-anchor=\"middle\" fill=\"#fbbf24\" class=\"box-title\">Gas</text>\n  <text x=\"565\" y=\"420\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"12\">Far apart, random</text>\n  <text x=\"565\" y=\"440\" text-anchor=\"middle\" fill=\"#94a3b8\" font-size=\"12\">Move rapidly everywhere</text>\n  <g>\n    <circle cx=\"510\" cy=\"160\" r=\"11\" fill=\"#f59e0b\">\n      <animate attributeName=\"cx\" values=\"510;620;530;510\" dur=\"3s\" repeatCount=\"indefinite\" />\n      <animate attributeName=\"cy\" values=\"160;220;320;160\" dur=\"3s\" repeatCount=\"indefinite\" />\n    </circle>\n    <circle cx=\"610\" cy=\"280\" r=\"11\" fill=\"#f59e0b\">\n      <animate attributeName=\"cx\" values=\"610;510;600;610\" dur=\"3.5s\" repeatCount=\"indefinite\" />\n      <animate attributeName=\"cy\" values=\"280;150;340;280\" dur=\"3.5s\" repeatCount=\"indefinite\" />\n    </circle>\n    <circle cx=\"550\" cy=\"330\" r=\"11\" fill=\"#f59e0b\">\n      <animate attributeName=\"cx\" values=\"550;580;520;550\" dur=\"2.7s\" repeatCount=\"indefinite\" />\n      <animate attributeName=\"cy\" values=\"330;180;250;330\" dur=\"2.7s\" repeatCount=\"indefinite\" />\n    </circle>\n  </g>\n</svg>",
+    "timestamp": "2026-11-24T11:20:18.900Z"
+  }
+]
